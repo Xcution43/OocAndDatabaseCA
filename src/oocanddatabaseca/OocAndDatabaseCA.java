@@ -16,7 +16,7 @@ public class OocAndDatabaseCA {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         
         
             Scanner scr = new Scanner (System.in);
