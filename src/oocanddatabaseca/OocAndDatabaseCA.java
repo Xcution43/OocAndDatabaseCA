@@ -14,7 +14,15 @@ public class OocAndDatabaseCA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        User u1 = new User("CCT", "Dublin", "Admin", "Munkhtemuulen", "Gantulga");
+        User u2 = new User("OOC", "Ireland", "Regular user", "Temuulen", "Narankhuu");
+        
+        System.out.println(u1.getUserID());
+        System.out.println(u2.getUserID());
+        
+        System.out.println(User.getCurrentID());
+        
     }
     
 }
