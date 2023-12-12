@@ -14,8 +14,8 @@ import java.util.Scanner;
  */
 public class Login {
     
-    String username = "ooc2023";
-    String password = "ooc2023";
+    String username;
+    String password;
     Scanner scanner1;
     int count;
     
@@ -40,8 +40,8 @@ public class Login {
     }
     
     public void loginPage(){
-        if(username.equals("admin")){
-            if(password.equals("admin")){
+        if(username.equals("ooc2023")){
+            if(password.equals("ooc2023")){
                 Welcome w1 = new Welcome();
             } else {
                 count++;
