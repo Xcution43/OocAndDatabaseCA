@@ -16,6 +16,7 @@ public class Login {
     
     String username;
     String password;
+    String userType;
     Scanner scanner1;
     int count;
     
@@ -24,6 +25,8 @@ public class Login {
     }
 
     public void setData(){
+        System.out.println("Enter user type >");
+        userType = scanner1.next();
         System.out.println("Enter Username >");
         username = scanner1.next();
         System.out.println("Enter Password >");
@@ -40,6 +43,9 @@ public class Login {
     }
     
     public void loginPage(){
+        if(userType.equals("admin")){
+           
+    
         if(username.equals("ooc2023")){
             if(password.equals("ooc2023")){
                 Welcome w1 = new Welcome();
@@ -53,7 +59,9 @@ public class Login {
                 }
                 
             }
-        } else {
+        }
+        
+    } else {
             count++;
             System.out.println("Incorrect username!");
             if(count < 3){
