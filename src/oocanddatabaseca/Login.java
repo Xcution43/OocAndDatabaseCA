@@ -44,11 +44,9 @@ public class Login {
     
     public void loginPage(){
         if(userType.equals("admin")){
-           
-    
         if(username.equals("ooc2023")){
-            if(password.equals("ooc2023")){
-                Welcome w1 = new Welcome();
+        if(password.equals("ooc2023")){
+        Welcome w1 = new Welcome();
             } else {
                 count++;
                 System.out.println("Incorrect password!");

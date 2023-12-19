@@ -31,7 +31,7 @@ public class DatabaseWriter {
                     //This is going to be pure sql but we are running it in Java
                 Statement stmt = conn.createStatement();
                     ){
-                String sql = String.format("INSERT INTO " + TABLE_NAME + "VALUES("                
+                String sql = String.format("INSERT INTO " + TABLE_NAME + "VALUES("
                 // single quote are presequel because we are putting a text
                 //%$ is string and %d is int
                 + "'%s', '%s', '%s', '%s', '%s', %d);", user.getFirstName(), user.getLastName(), user.getPassword(), user.getUserType(), user.getUsername(), user.getUserID());

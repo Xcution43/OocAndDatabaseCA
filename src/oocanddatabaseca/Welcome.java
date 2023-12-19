@@ -10,6 +10,6 @@ package oocanddatabaseca;
  */
 public class Welcome {
     public Welcome(){
-        System.out.println("Welcome - You are successfully logged in!");
+        System.out.println("Welcome admin - You are successfully logged in!");
     }
 }
