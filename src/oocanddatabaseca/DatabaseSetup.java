@@ -38,7 +38,7 @@ public class DatabaseSetup extends Database {
                 stmt.execute("USE oocdb;");
                 
                     //this is gonna contain our sql codes
-                String sql = "CREATE TABLE IF NOT EXISTS" + TABLE_NAME + " ("
+                String sql = "CREATE TABLE IF NOT EXISTS userdata ("
                             
                             /*
                             username

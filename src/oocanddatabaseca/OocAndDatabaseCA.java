@@ -19,10 +19,10 @@ public class OocAndDatabaseCA {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         
         
-            Scanner scr = new Scanner (System.in);
-            
-            Login login = new Login(scr);
-            login.setData();
+//            Scanner scr = new Scanner (System.in);
+//            
+//            Login login = new Login(scr);
+//            login.setData();
 
         //Testing how the user class and currentID works
 //        User u1 = new User("CCT", "Dublin", "Admin", "Munkhtemuulen", "Gantulga");
@@ -34,12 +34,12 @@ public class OocAndDatabaseCA {
 //        System.out.println(User.getCurrentID());
 //        
 //        
-//        //Here we are checking whether our database is connected or not
-//        if (DatabaseSetup.setupDB()) {
-//            System.out.println("Database and tables are created");
-//        } else {
-//            System.out.println("Oops! There was a database creation problem ...");
-//        }
+        //Here we are checking whether our database is connected or not
+        if (DatabaseSetup.setupDB()) {
+            System.out.println("Database and tables are created");
+        } else {
+            System.out.println("Oops! There was a database creation problem ...");
+        }
     }
     
     

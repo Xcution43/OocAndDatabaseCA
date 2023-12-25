@@ -14,10 +14,10 @@ public abstract class Database {
     //It can run from this class
     //Since it is abstract class we made them protected
     
-    protected final static String DB_BASE_URL = "jdbc:msql://localhost";
+    protected final static String DB_BASE_URL = "jdbc:mysql://localhost";
     protected final static String USER = "ooc2023"; 
     protected final static String PASSWORD = "ooc2023";
-    protected final static String DB_NAME = "ooc_database_assessment";
+    protected final static String DB_NAME = "oocdb";
     protected final static String TABLE_NAME = "userData";
     
     //jdbc:msql://localhost/ooc_database_assessment  / forward slash connects base url to userdata 

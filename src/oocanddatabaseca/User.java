@@ -33,24 +33,20 @@ public class User {
     
     
     //Making a constructor
-    public User(String username, String password, String userType, String firstName, String lastName) {
+
+    public User(String username, String password, String userType, String firstName, String lastName, int userID, double totalIncome, double paye, double usc, double prsi) {
         this.username = username;
         this.password = password;
         this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
-        //This will automatically give ID whenever we make new user
         this.userID = userID;
-        //Testing the user class
-        System.out.println("This user's full name is: " +firstName + " " + lastName + " and this user's type is: " + userType);   
-    }
-
-    public User(double totalIncome, double paye, double usc, double prsi) {
         this.totalIncome = totalIncome;
         this.paye = paye;
         this.usc = usc;
         this.prsi = prsi;
     }
+
     
     
     
