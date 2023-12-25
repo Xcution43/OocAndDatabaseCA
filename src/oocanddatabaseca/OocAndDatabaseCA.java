@@ -25,11 +25,11 @@ public class OocAndDatabaseCA {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         
         // Here we are checking whether our database is connected or not
-        if (DatabaseSetup.setupDB()) {
-            System.out.println("Database and tables are created");
-        } else {
-            System.out.println("Oops! There was a database creation problem ...");
-        }
+//        if (DatabaseSetup.setupDB()) {
+//            System.out.println("Database and tables are created");
+//        } else {
+//            System.out.println("Oops! There was a database creation problem ...");
+//        }
 
         // Admin login (you can enhance this with better authentication)
         Admin admin = login();
@@ -61,7 +61,7 @@ public class OocAndDatabaseCA {
         // For simplicity, let us assume there is only one admin with username "CCT" and password "Dublin"
         if ("CCT".equals(username) && "Dublin".equals(password)) {
             // Fetch admin details from the database if needed
-            return new Admin(1, username, password, "admin", "Munkhtemuulen", "Gantulga", 52970, 12788, 1423, 52970, true);
+            return new Admin(1, "CCT", "Dublin", "admin", "Munkhtemuulen", "Gantulga", 52970, 12788, 1423, 52970, true);
         } else {
             return null;
         }
