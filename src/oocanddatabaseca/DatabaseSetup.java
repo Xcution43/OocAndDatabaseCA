@@ -21,16 +21,11 @@ public class DatabaseSetup extends Database {
         try (
                 
                 Connection conn = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD);
-            
-            //DriverManager helps to manage our connection to the database                
-                
-                //stmt is going to be sql queries
-                //we are gonna call methods on the stmt and that is gonna execute queries on the database
-                //we are gonna use sql statements or sql queries in stmt here but we are gonna run that in Java
-                //this is gonna be pure sql but we are running it in Java                
+                           
                 Statement stmt = conn.createStatement();
                 
                 ){
+            
                 //writing and creating sql queries
                 //this creates sql database named oocdb
                 

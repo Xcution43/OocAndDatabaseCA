@@ -13,6 +13,14 @@ import java.util.Scanner;
 /**
  *
  * @author moogi
+ * 
+ * Lecturer: Sam Weiss and James Garza
+ * Student name: Munkhtemuulen Gantulga
+ * Student name: Temuulen Narankhuu
+ * Student ID: 2021217
+ * Student ID: 2021120
+ * Github link: https://github.com/Xcution43/OocAndDatabaseCA
+ * 
  */
 public class OocAndDatabaseCA {
 
@@ -57,8 +65,6 @@ public class OocAndDatabaseCA {
 
     private static Admin authenticateAdmin(String username, String password) {
         // Implement logic to authenticate admin from the database
-        // You might want to query the database to get admin details
-        // For simplicity, let us assume there is only one admin with username "CCT" and password "Dublin"
         if ("CCT".equals(username) && "Dublin".equals(password)) {
             // Fetch admin details from the database if needed
             return new Admin(1, "CCT", "Dublin", "admin", "Munkhtemuulen", "Gantulga", 52970, 12788, 1423, 52970, true);
