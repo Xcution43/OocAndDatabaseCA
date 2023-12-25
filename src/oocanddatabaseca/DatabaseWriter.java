@@ -11,46 +11,70 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author ANUAN
  */
-public class DatabaseWriter {
-    public class DataWriter extends Database{
-        
-        
-        public boolean addUser (User user) throws SQLException {
-            try(
-                    //DriverManager helps to manage our connection to the database
-                    Connection conn=
-                            DriverManager.getConnection(DB_URL, USER, PASSWORD);
-                    //stmt is going to be sql queries
-                    //we are going to call methods on he stmt and that is going to execute queries on the database
-                    //we will use sql statements or sql queries in stmt here but we are going to run it in Java
-                    //This is going to be pure sql but we are running it in Java
-                Statement stmt = conn.createStatement();
-                    ){
-                String sql = String.format("INSERT INTO " + TABLE_NAME + "VALUES("
-                // single quote are presequel because we are putting a text
-                //%$ is string and %d is int
-                + "'%s', '%s', '%s', '%s', '%s', %d);", user.getFirstName(), user.getLastName(), user.getPassword(), user.getUserType(), user.getUsername(), user.getUserID());
-                        
-               stmt.execute(sql);
-               return true;
-            } catch (Exception e){
-                e.printStackTrace();
-                return false;
-            }
-        }
-        
+public class DatabaseWriter extends Database {
+    
+    
+    //establishing connection with database and add users
+    public boolean addAllUser(List<User> userList) throws SQLException {
+        try (
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 
-            public boolean addAllUsers(List<User> userList) {
-                return true;
+        Statement stmt = conn.createStatement()){
+            for (User user : userList) {
+                String sql = String.format("INSERT INTO " + TABLE_NAME + " VALUES ("
+                + "'%s', '%s', '%s', '%s', '%s', %d, %d, %d, ,%d ,%d);",
+                user.getUsername(), user.getPassword(), user.getUserType(), user.getFirstName(), user.getLastName(), user.getUserID(), user.getTotalIncome(), user.getPaye(), user.getUsc(), user.getPrsi());
+            stmt.execute(sql);
             }
-                
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    //establishing connection with database and delete users by userID
+    public boolean deleteUser(int userID) throws SQLException {
+        try (
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            Statement stmt = conn.createStatement();
+        ) {
+            String sql = String.format("DELETE FROM " + TABLE_NAME + " WHERE userID = %d;", userID);
+            int rowsAffected = stmt.executeUpdate(sql);
+            
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean updateUser(int userID, String newUsername, String newPassword, int newUserID) throws SQLException {
+        try (
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            Statement stmt = conn.createStatement();
+        ) {
+           String sql = String.format("UPDATE " + TABLE_NAME + " SET "
+           + "username = '%s', password = '%s', userID = %d "
+           + "WHERE userID = %d;",
+           newUsername, newPassword, newUserID, userID);
+           int rowsAffected = stmt.executeUpdate(sql);
+           
+           return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
+        
+               
                 
                 
                     

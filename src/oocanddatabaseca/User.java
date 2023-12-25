@@ -9,15 +9,7 @@ package oocanddatabaseca;
  * @author moogi
  */
 public class User {
-
-    public static int getCurrentID() {
-        return currentID;
-    }
-
-    public static void setCurrentID(int aCurrentID) {
-        currentID = aCurrentID;
-    }
-   
+  
     //Creating objects
     /*
     username
@@ -34,8 +26,10 @@ public class User {
     private String firstName;
     private String lastName;
     private int userID;
-    //currentID is going to be shared any object in this class
-    private static int currentID = 1;
+    private double totalIncome;
+    private double paye;
+    private double usc;
+    private double prsi;
     
     
     //Making a constructor
@@ -46,11 +40,19 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         //This will automatically give ID whenever we make new user
-        this.userID = currentID;
+        this.userID = userID;
         //Testing the user class
-        System.out.println("This user's full name is: " +firstName + " " + lastName + " and this user's type is: " + userType);
-        currentID++;
+        System.out.println("This user's full name is: " +firstName + " " + lastName + " and this user's type is: " + userType);   
     }
+
+    public User(double totalIncome, double paye, double usc, double prsi) {
+        this.totalIncome = totalIncome;
+        this.paye = paye;
+        this.usc = usc;
+        this.prsi = prsi;
+    }
+    
+    
     
     //Making Getters for everything and using encapsulation on them
     public String getUsername() {
@@ -76,7 +78,24 @@ public class User {
     public int getUserID() {
         return userID;
     }
-     
+
+    public double getTotalIncome() {
+        return totalIncome;
+    }
+
+    public double getPaye() {
+        return paye;
+    }
+
+    public double getUsc() {
+        return usc;
+    }
+
+    public double getPrsi() {
+        return prsi;
+    }
+    
+    
      
     //Making Getters for everything and using encapsulation on them
     public void setUsername(String username) {
@@ -102,5 +121,21 @@ public class User {
     public void setUserID(int userID) {
         this.userID = userID;
     }   
+
+    public void setTotalIncome(double totalIncome) {
+        this.totalIncome = totalIncome;
+    }
+
+    public void setPaye(double paye) {
+        this.paye = paye;
+    }
+
+    public void setUsc(double usc) {
+        this.usc = usc;
+    }
+
+    public void setPrsi(double prsi) {
+        this.prsi = prsi;
+    }
     
 }

@@ -13,19 +13,11 @@ import java.sql.Statement;
  *
  * @author ANUAN
  */
-public class DatabaseSetup {
-    
-    //The reason why we made it static is we do not need setupDB object
-    //we just need to run it from this class
-    final static String DB_BASE_URL = "jdbc:mysql://localhost";
-    final static String USER = "ooc2023";
-    final static String PASSWORD = "ooc2023";
-
-    //
+public class DatabaseSetup extends Database {
+    //Establishing the Connection
     public static boolean setupDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-        
         try (
                 
                 Connection conn = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD);
@@ -42,11 +34,11 @@ public class DatabaseSetup {
                 //writing and creating sql queries
                 //this creates sql database named oocdb
                 
-                stmt.execute("CREATE DATABASE IF NOT EXISTS oocdb;");
-                stmt.execute("USE oocdb");
+                stmt.execute("CREATE DATABASE IF NOT EXISTS " + DB_NAME + ";");
+                stmt.execute("USE oocdb;");
                 
                     //this is gonna contain our sql codes
-                    String sql = "CREATE TABLE IF NOT EXISTS userData ("
+                String sql = "CREATE TABLE IF NOT EXISTS" + TABLE_NAME + " ("
                             
                             /*
                             username
@@ -55,15 +47,24 @@ public class DatabaseSetup {
                             firstName
                             lastName
                             userID
+                            total incom
+                            usc
+                            prsi
+                            paye
                             */
                             
                             //Here we are gonna specify all the column names and the data type that is gonna be in that column
-                            + "username VARCHAR(255),"
-                            + "password VARCHAR(255),"
+                            + "userID INT NOT NULL AUTO_INCREMENT,"
+                            + "username VARCHAR(50),"
+                            + "password VARCHAR(50),"
                             + "userType VARCHAR(50),"
                             + "firstName VARCHAR (50),"
                             + "lastName VARCHAR(50),"
-                            + "userID INT(10)"
+                            + "total_income DECIMAL(6,2),"
+                            + "paye DECIMAL(5.2),"
+                            + "usc DECIMAL(5.2),"
+                            + "prsi DECIMAL(5.2),"
+                            + "PRIMARY KEY (userID)"
                             + ");";
                         stmt.execute(sql);
                         //Here we are checking errors in database
