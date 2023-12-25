@@ -19,7 +19,7 @@ public class User {
     lastName
     userID
     */
-    private int userID;
+    int userID;
     private String username;
     private String password;
     private String userType;
@@ -29,11 +29,12 @@ public class User {
     private double paye;
     private double usc;
     private double prsi;
+    private boolean isAdmin;
     
     
     //Making a constructor
 
-    public User(int userID, String username, String password, String userType, String firstName, String lastName, double totalIncome, double paye, double usc, double prsi) {
+    public User(int userID, String username, String password, String userType, String firstName, String lastName, double totalIncome, double paye, double usc, double prsi, boolean isAdmin) {
         this.userID = userID;
         this.username = username;
         this.password = password;
@@ -44,6 +45,7 @@ public class User {
         this.paye = paye;
         this.usc = usc;
         this.prsi = prsi;
+        this.isAdmin = isAdmin;
     }
     public int getUserID() {
         return userID;
@@ -80,6 +82,12 @@ public class User {
     public double getUsc() {
         return usc;
     }
+
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+    
+    
 
     //Making Getters for everything and using encapsulation on them
     public double getPrsi() {
@@ -128,4 +136,8 @@ public class User {
         this.prsi = prsi;
     }
 
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
 }

@@ -25,7 +25,7 @@ public class DatabaseWriter extends Database {
 public boolean addAllUser(List<User> userList) throws SQLException {
     try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD)) {
         // Using PreparedStatement for parameterized queries
-        String sql = "INSERT INTO " + TABLE_NAME + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO " + TABLE_NAME + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             for (User user : userList) {
@@ -40,6 +40,7 @@ public boolean addAllUser(List<User> userList) throws SQLException {
                 stmt.setDouble(8, user.getPaye());
                 stmt.setDouble(9, user.getUsc());
                 stmt.setDouble(10, user.getPrsi());
+                stmt.setBoolean(11, user.isIsAdmin());
 
                 stmt.execute();
             }

@@ -63,7 +63,8 @@ public class DatabaseSetup extends Database {
                             + "total_income DECIMAL(10,2),"
                             + "paye DECIMAL(10,2),"
                             + "usc DECIMAL(10,2),"
-                            + "prsi DECIMAL(10,2)"
+                            + "prsi DECIMAL(10,2),"
+                            + "isAdmin BOOLEAN"
                             + ");";
                         stmt.execute(sql);
                         //Here we are checking errors in database
