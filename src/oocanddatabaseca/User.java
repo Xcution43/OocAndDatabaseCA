@@ -19,13 +19,12 @@ public class User {
     lastName
     userID
     */
-    
+    private int userID;
     private String username;
     private String password;
     private String userType;
     private String firstName;
     private String lastName;
-    private int userID;
     private double totalIncome;
     private double paye;
     private double usc;
@@ -34,23 +33,22 @@ public class User {
     
     //Making a constructor
 
-    public User(String username, String password, String userType, String firstName, String lastName, int userID, double totalIncome, double paye, double usc, double prsi) {
+    public User(int userID, String username, String password, String userType, String firstName, String lastName, double totalIncome, double paye, double usc, double prsi) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userID = userID;
         this.totalIncome = totalIncome;
         this.paye = paye;
         this.usc = usc;
         this.prsi = prsi;
     }
+    public int getUserID() {
+        return userID;
+    }
 
-    
-    
-    
-    //Making Getters for everything and using encapsulation on them
     public String getUsername() {
         return username;
     }
@@ -71,10 +69,6 @@ public class User {
         return lastName;
     }
 
-    public int getUserID() {
-        return userID;
-    }
-
     public double getTotalIncome() {
         return totalIncome;
     }
@@ -87,13 +81,17 @@ public class User {
         return usc;
     }
 
+    //Making Getters for everything and using encapsulation on them
     public double getPrsi() {
         return prsi;
     }
-    
-    
-     
+
     //Making Getters for everything and using encapsulation on them
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -114,10 +112,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }   
-
     public void setTotalIncome(double totalIncome) {
         this.totalIncome = totalIncome;
     }
@@ -133,5 +127,5 @@ public class User {
     public void setPrsi(double prsi) {
         this.prsi = prsi;
     }
-    
+
 }

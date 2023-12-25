@@ -9,6 +9,7 @@ import static oocanddatabaseca.Database.USER;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
@@ -21,23 +22,37 @@ public class DatabaseWriter extends Database {
     
     
     //establishing connection with database and add users
-    public boolean addAllUser(List<User> userList) throws SQLException {
-        try (
-        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+public boolean addAllUser(List<User> userList) throws SQLException {
+    try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD)) {
+        // Using PreparedStatement for parameterized queries
+        String sql = "INSERT INTO " + TABLE_NAME + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        Statement stmt = conn.createStatement()){
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             for (User user : userList) {
-                String sql = String.format("INSERT INTO " + TABLE_NAME + " VALUES ("
-                + "'%s', '%s', '%s', '%s', '%s', %d, %d, %d, ,%d ,%d);",
-                user.getUsername(), user.getPassword(), user.getUserType(), user.getFirstName(), user.getLastName(), user.getUserID(), user.getTotalIncome(), user.getPaye(), user.getUsc(), user.getPrsi());
-            stmt.execute(sql);
+                //Setting parameter values for each user
+                stmt.setInt(1, user.getUserID());
+                stmt.setString(2, user.getUsername());
+                stmt.setString(3, user.getPassword());
+                stmt.setString(4, user.getUserType());
+                stmt.setString(5, user.getFirstName());
+                stmt.setString(6, user.getLastName());
+                stmt.setDouble(7, user.getTotalIncome());
+                stmt.setDouble(8, user.getPaye());
+                stmt.setDouble(9, user.getUsc());
+                stmt.setDouble(10, user.getPrsi());
+
+                stmt.execute();
             }
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
     }
+}
     
     //establishing connection with database and delete users by userID
     public boolean deleteUser(int userID) throws SQLException {

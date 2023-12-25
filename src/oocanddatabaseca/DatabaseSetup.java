@@ -54,17 +54,16 @@ public class DatabaseSetup extends Database {
                             */
                             
                             //Here we are gonna specify all the column names and the data type that is gonna be in that column
-                            + "userID INT NOT NULL AUTO_INCREMENT,"
+                            + "userID INT PRIMARY KEY,"
                             + "username VARCHAR(50),"
                             + "password VARCHAR(50),"
                             + "userType VARCHAR(50),"
                             + "firstName VARCHAR (50),"
                             + "lastName VARCHAR(50),"
-                            + "total_income DECIMAL(6,2),"
-                            + "paye DECIMAL(5.2),"
-                            + "usc DECIMAL(5.2),"
-                            + "prsi DECIMAL(5.2),"
-                            + "PRIMARY KEY (userID)"
+                            + "total_income DECIMAL(7,2),"
+                            + "paye DECIMAL(7,2),"
+                            + "usc DECIMAL(7,2),"
+                            + "prsi DECIMAL(7,2)"
                             + ");";
                         stmt.execute(sql);
                         //Here we are checking errors in database
