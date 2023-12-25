@@ -60,10 +60,10 @@ public class DatabaseSetup extends Database {
                             + "userType VARCHAR(50),"
                             + "firstName VARCHAR (50),"
                             + "lastName VARCHAR(50),"
-                            + "total_income DECIMAL(7,2),"
-                            + "paye DECIMAL(7,2),"
-                            + "usc DECIMAL(7,2),"
-                            + "prsi DECIMAL(7,2)"
+                            + "total_income DECIMAL(10,2),"
+                            + "paye DECIMAL(10,2),"
+                            + "usc DECIMAL(10,2),"
+                            + "prsi DECIMAL(10,2)"
                             + ");";
                         stmt.execute(sql);
                         //Here we are checking errors in database
