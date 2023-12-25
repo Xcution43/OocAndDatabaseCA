@@ -13,14 +13,14 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 /**
  *
  * @author moogi
  */
 public class DatabaseReader {
-    public void getAllData() {
-        try (
-            //DriverManager helps to manage our connection to the database                
+    public List<User> getAllData() {
+        try (             
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                              
             Statement stmt = conn.createStatement();
@@ -34,8 +34,6 @@ public class DatabaseReader {
                     TABLE_NAME));
         ){
             while (results.next()) {
-            //results is a cursor/pointer to a particular row in the results
-            //once we are on the row we want, we can extract the data based on the column name
             //Selects row 1. Need to put following code once in order to get first row
             System.out.println(results.getString("username"));
             System.out.println(results.getInt("userID"));
@@ -43,6 +41,7 @@ public class DatabaseReader {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
     
     public User getUserData(int userID) throws SQLException {
